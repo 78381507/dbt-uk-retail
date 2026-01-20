@@ -32,3 +32,4 @@ UK Retail transactions with columns: Invoice, StockCode, Description, Quantity, 
 ## Tests
 - Schema tests on key fields (not_null/unique) defined in `staging.yml`, `intermediate.yml`, `marts.yml`
 - Custom data test: **assert_non_negative_prices** (ensures non-negative `sale_amount`)
+- Built and validated with dbt build (models + tests).
