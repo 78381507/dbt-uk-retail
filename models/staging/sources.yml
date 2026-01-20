@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw
+    database: uk-retail-europe
+    schema: raw
+    tables:
+      - name: online_retail
+        description: "Raw UK retail transaction data"

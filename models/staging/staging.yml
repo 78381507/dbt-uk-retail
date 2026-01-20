@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg_uk_retail__sales
+    description: "Staged UK retail sales data with cleaned column names and types"
+    columns:
+      - name: invoice_no
+        description: "Invoice number - unique per transaction"
+        tests:
+          - not_null
+      - name: stock_code
+        description: "Product code"
+        tests:
+          - not_null
+      - name: quantity
+        description: "Quantity of items purchased"
+      - name: invoice_ts
+        description: "Timestamp of the invoice"
+      - name: unit_price
+        description: "Price per unit"
+      - name: customer_id
+        description: "Customer identifier (can be null)"
+      - name: country
+        description: "Country of the customer"
