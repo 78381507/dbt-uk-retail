@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: int_uk_retail__line_items
+    description: "Cleaned line items with business logic applied (cancellations, amounts)"
+    columns:
+      - name: invoice_no
+        description: "Invoice number"
+      - name: invoice_date
+        description: "Date of the invoice"
+      - name: is_cancelled
+        description: "True if invoice starts with C (cancelled order)"
+      - name: line_amount
+        description: "Raw amount (quantity * unit_price)"
+      - name: sale_amount
+        description: "Final amount (0 if cancelled, otherwise line_amount)"

@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: fct_daily_revenue
+    description: "Daily revenue metrics aggregated from sales"
+    columns:
+      - name: invoice_date
+        description: "Date of sales"
+        tests:
+          - unique
+          - not_null
+      - name: revenue
+        description: "Total revenue for the day"
+      - name: orders
+        description: "Number of distinct orders"
+      - name: items_sold
+        description: "Total quantity of items sold"
+      - name: customers
+        description: "Number of distinct customers"
+
+  - name: dim_customers
+    description: "Customer dimension with purchase history metrics"
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier"
+        tests:
+          - unique
+          - not_null
+      - name: country
+        description: "Customer country"
+      - name: first_purchase_date
+        description: "Date of first purchase"
+      - name: last_purchase_date
+        description: "Date of most recent purchase"
+      - name: orders_count
+        description: "Total number of orders"
+      - name: total_revenue
+        description: "Total revenue from this customer"
+
+  - name: fct_product_daily_revenue
+    description: "Daily product KPIs (revenue, orders, items sold) built from cleaned line items. Cancelled/returns excluded."
+    columns:
+      - name: invoice_date
+        description: "Invoice date (day grain)."
+        tests:
+          - not_null
+      - name: stock_code
+        description: "Product identifier."
+        tests:
+          - not_null
+      - name: revenue
+        description: "Daily revenue per product (sale_amount)."
