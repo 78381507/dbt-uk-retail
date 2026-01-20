@@ -16,9 +16,12 @@ models:
         description: "Quantity of items purchased"
       - name: invoice_ts
         description: "Timestamp of the invoice"
+        tests:
+          - not_null
       - name: unit_price
         description: "Price per unit"
       - name: customer_id
         description: "Customer identifier (can be null)"
       - name: country
         description: "Country of the customer"
+      
